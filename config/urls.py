@@ -17,7 +17,7 @@ Including another URLconf
 
 
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, include, re_path # default
 
 # for media and static files
 from django.conf import settings
@@ -29,12 +29,17 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+# page not found
+from django.conf.urls import handler404
+from .errors import CustomPageNotFoundPageView
+from .errors import custom_page_not_found_page_view
+
 
 schema_view = get_schema_view(
    openapi.Info(
       title="Balita API",
       default_version='v1',
-      description="Test description",
+      description="Balita description",
       terms_of_service="https://www.google.com/policies/terms/",
       contact=openapi.Contact(email="contact@snippets.local"),
       license=openapi.License(name="BSD License"),
@@ -78,3 +83,5 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+handler404 = custom_page_not_found_page_view # 404 error
