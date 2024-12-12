@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 
-from django.contrib import admin
+from django.contrib import admin # admin
 from django.urls import path, include, re_path # default
 
 # for media and static files
@@ -35,6 +35,8 @@ from .errors import CustomPageNotFoundPageView
 from .errors import custom_page_not_found_page_view
 
 
+# for drf-yasg
+
 schema_view = get_schema_view(
    openapi.Info(
       title="Balita API",
@@ -50,10 +52,10 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    # admin url
+    # admin path
     path('balitaapi/', admin.site.urls),
 
-    # rest framework
+    # rest framework path
     path('api-auth/', include('rest_framework.urls')),
 
     # drf-yasg path
@@ -61,7 +63,7 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
-    # ckeditor url
+    # ckeditor path
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
     # for media and static files
