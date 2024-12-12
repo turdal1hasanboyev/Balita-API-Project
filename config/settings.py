@@ -35,7 +35,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# AUTH_USER_MODEL = 'memorial.CustomUser' # AUTH USER
+AUTH_USER_MODEL = 'user.CustomUser' # AUTH USER
 
 
 # Application definition
@@ -146,25 +146,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # default
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # PostgreSQL configuration
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'balitaapi',
-#         'USER': 'balitaapi',
-#         'PASSWORD': 'balitaapi',
-#         'HOST': '127.0.0.1', # or 'localhost'
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'balitaapi',
+        'USER': 'balitaapi',
+        'PASSWORD': 'balitaapi',
+        'HOST': '127.0.0.1', # or 'localhost'
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
