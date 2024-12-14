@@ -25,6 +25,15 @@ class CustomUser(BaseModel, AbstractUser):
     adress = models.TextField(null=True, blank=True)
     birthday = models.DateField(null=True, blank=True)
 
+    objects = CustomUserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = [
+        'phone_number',
+        'first_name',
+        'last_name',
+        ]
+
     class Meta:
         verbose_name = "User"
         verbose_name_plural = "Users"
@@ -38,15 +47,6 @@ class CustomUser(BaseModel, AbstractUser):
         if (today.month, today.day) < (self.birthday.month, self.birthday.day):
             age -= 1
         return age
-    
-    objects = CustomUserManager()
-
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [
-        'phone_number',
-        'first_name',
-        'last_name',
-        ]
 
     def __str__(self):
         if self.get_full_name():

@@ -31,9 +31,9 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env.str("SECRET_KEY", default='SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # DEBUG
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # ALLOWED_HOSTS
 
 AUTH_USER_MODEL = 'user.CustomUser' # AUTH USER
 
@@ -41,6 +41,8 @@ AUTH_USER_MODEL = 'user.CustomUser' # AUTH USER
 # Application definition
 
 INSTALLED_APPS = [
+    # default apps and libs
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,4 +1,4 @@
-def global_context(request, *args, **kwargs):
+def global_context(request):
     context = {}
     
     return context

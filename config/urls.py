@@ -30,8 +30,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 # page not found
-from django.conf.urls import handler404
-from .errors import CustomPageNotFoundPageView
+# from django.conf.urls import handler404
+# from .errors import CustomPageNotFoundPageView
 from .errors import custom_page_not_found_page_view
 
 
